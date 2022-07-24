@@ -1,0 +1,16 @@
+class Solution {
+public:
+    char repeatedCharacter(string s) {
+        int freq[26] = {};  // Total Alphabet & initialize to 0
+        char ans = 'a';
+        
+        for(auto i : s){
+            freq[i-'a']++;  // i-'a' gives each alphabet index
+            if(freq[i-'a']>=2){  // whenever freq of any character goes above or equal to 2
+                ans = i;
+                break;
+            }
+        }
+        return ans;
+    }
+};
