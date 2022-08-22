@@ -1,1 +1,21 @@
-
+class Solution{
+	public:
+		vector<string> AllPossibleStrings(string s){
+		    // Code here
+		    int n = s.length();
+		    vector<string> ans;
+		    for(int i=0; i< (1<<n); i++){
+	            string sub = "";
+		        for(int j=0; j<=n-1; j++){
+		            if(i&(1<<j)){
+		                sub += s[j];
+		            }
+		        }
+		        if(sub.length()>0){
+		            ans.push_back(sub);
+		        }
+		    }
+		    sort(ans.begin(),ans.end());
+		    return ans;
+		}
+};
